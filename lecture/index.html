@@ -1,0 +1,74 @@
+<html>
+<!-- html 파일의 react 사용법 -->
+<header>
+  <!-- react 라이브러리 -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</header>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // react 의 jsx 문법을 사용하기 위해서는 babel 라이브러리 등록 후 type을 text/babel로 바꾼다.
+
+    // 사용하고자 하는 컴포넌트명을 클래스로 생성 후 React.Component 상속
+    class GuGuDan extends React.Component {
+
+      // 변해야 하는 값들을 state로 선언
+      state = {
+        firstNumber: Math.ceil(Math.random() * 9),
+        secondNumber: Math.ceil(Math.random() * 9),
+        value: '',
+        result: '',
+      }
+
+      // jsx문법에서 함수 호출 가능. 웬만하면 jsx문법에서 javascript 문법을 사용하기 보다는 따로 함수로 빼서 사용하는게 좋다.
+      onSubmit = (e) => {
+        e.preventDefault();
+        if (parseInt(this.state.value) === this.state.firstNumber * this.state.secondNumber) {
+          this.setState(
+            {
+              result: this.state.firstNumber + ' * ' + this.state.secondNumber + ' = ' + this.state.value + ' 정답!',
+              firstNumber: Math.ceil(Math.random() * 9),
+              secondNumber: Math.ceil(Math.random() * 9),
+              value: '',
+            }
+          );
+        } else {
+          this.setState(
+            {
+              result: '땡',
+              value: '',
+            }
+          );
+        }
+      }
+      onChange = (e) => {
+        this.setState({ value: e.target.value })
+      }
+
+      // 렌더링 할 컴포넌트 속성을 담아서 return한다.
+      render() {
+        return (
+          <React.Fragment>
+            <div>{this.state.firstNumber}곱하기{this.state.secondNumber}는?</div>
+            <form onSubmit={this.onSubmit}>
+              <input type="number" value={this.state.value} onChange={this.onChange} />
+              <button>입력!</button>
+            </form>
+            <div>{this.state.result}</div>
+          </React.Fragment>
+        );
+      }
+    }
+  </script>
+
+  <script type="text/babel">
+    // ReactDOM으로 렌더링 할 컴포넌트, 컴포넌트에 연결될 태그 지정
+    ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+  </script>
+</body>
+
+</html>

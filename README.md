@@ -1,4 +1,4 @@
-# react-study
+# react-app-frontend
 This project is for studying react and creating a blog with react.
 
 # Getting Started with Create React App

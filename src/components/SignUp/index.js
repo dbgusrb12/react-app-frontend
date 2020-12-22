@@ -1,5 +1,5 @@
 import React from 'react';
-import { validateAll } from 'indicative';
+import { validations, validateAll } from 'indicative/validator';
 import Axios from 'axios';
 import config from '../config/index';
 
@@ -30,12 +30,19 @@ class SignUp extends React.Component {
     const rules = {
       name: 'required|string',
       email: 'required|email',
-      password: 'required|string|min:6|confirmed'
+      // password: 'required|string|min:6|confirmed'
+      password: [
+        validations.required(),
+        validations.confirmed(),
+        validations.regex([/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/]),
+      ]
     };
 
     const messages = {
-      required: 'The {{ field }} is required.',
-      'password.confirmed': 'The password confirmation does not match.'
+      required: '필수값 입니다.',
+      'password.regex': '비밀번호는 최소 6자, 하나의 문자, 하나의 숫자, 하나의 특수 문자로 이루어져야 합니다.',
+      'password.confirmed': '비밀번호가 맞지 않습니다.',
+      'email.email': '이메일 형식으로 작성해 주세요.'
     }
     validateAll(data, rules, messages)
     .then(() => {

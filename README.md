@@ -1,3 +1,6 @@
+# react-study
+This project is for studying react and creating a blog with react.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

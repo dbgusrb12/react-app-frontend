@@ -18,15 +18,15 @@ const Navbar = () => {
                 <Link className="nav-link" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link classname="nav-link" to="/articles/create">Write New Article</Link>
+                <Link className="nav-link" to="/articles/create">Write New Article</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Hey Garry!
                   <i className="fa fa-caret-down" />
                 </a>
                 <div className="nav-submenu">
-                  <a className="nav-link" href="page-login.html">My articles</a>
-                  <a className="nav-link" href>Logout</a>
+                  <a className="nav-link" href="#">My articles</a>
+                  <a className="nav-link" href="#">Logout</a>
                 </div>
               </li>
               <li className="nav-item">

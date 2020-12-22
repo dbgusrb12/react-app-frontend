@@ -36,7 +36,7 @@ const CreateArticle = () => {
                 <textarea className="form-control form-control-lg" rows={4} placeholder="Content" name="message" defaultValue={""} />
               </div>
               <div className="text-center">
-                <button className="btn btn-lg btn-primary" type="submit">Create Article</button>
+                <button className="btn btn-lg btn-primary" type="submit">글쓰기</button>
               </div>
             </form>
           </div>

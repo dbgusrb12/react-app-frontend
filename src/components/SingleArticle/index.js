@@ -11,7 +11,7 @@ const SingleArticle = () => {
           <p className="opacity-70">News</p>
           <br />
           <h1 className="display-4 hidden-sm-down">We've just passed 1,000 customers!</h1>
-          <h1 className="hidden-md-up">We've just passed 1,000 customers!</h1>
+          {/* <h1 className="hidden-md-up">We've just passed 1,000 customers!</h1> */}
           <br />
           <br />
           <p>

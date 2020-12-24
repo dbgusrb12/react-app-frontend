@@ -6,8 +6,8 @@ import Welcome from './components/Welcome';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import SignUp from './components/SignUp/index';
-import SingleArticle from './components/SingleArticle';
-import CreateArtice from './components/CreateArticle';
+import BoardDetail from './components/SingleArticle/boardDetail';
+import CreateBoard from './components/CreateArticle/createBoard';
 
 const App = withRouter(({ location }) => {
 return (
@@ -19,8 +19,8 @@ return (
       
       <Route exact path="/" component={Welcome}/>
       <Route path="/login" component={Login}/>
-      <Route path="/article/:slug" component={SingleArticle}/>
-      <Route path="/articles/create" component={CreateArtice}/>
+      <Route path="/article/:slug" component={BoardDetail}/>
+      <Route path="/articles/create" component={CreateBoard}/>
       <Route path="/signup" component={SignUp}/>
     {
       location.pathname !== '/login' && location.pathname !== '/signup' &&

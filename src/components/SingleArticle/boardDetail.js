@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleArticle = () => {
+const BoardDetail = () => {
   return (
    <div>
   {/* Header */}
@@ -126,4 +126,4 @@ const SingleArticle = () => {
   );
 };
 
-export default SingleArticle;
+export default BoardDetail;

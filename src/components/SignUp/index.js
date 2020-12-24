@@ -1,7 +1,6 @@
 import React from 'react';
 import { validations, validateAll } from 'indicative/validator';
 import Axios from 'axios';
-import config from '../config/index';
 
 class SignUp extends React.Component {
   constructor() {
@@ -47,7 +46,7 @@ class SignUp extends React.Component {
     validateAll(data, rules, messages)
     .then(() => {
       //successfull login
-      Axios.post(`${config.apiUrl}/auth/register`, {
+      Axios.post(`urlsample/`, {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password

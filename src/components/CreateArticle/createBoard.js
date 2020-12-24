@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../Banner';
 
-const CreateArticle = () => {
+const CreateBoard = () => {
   return (
     <div>
 
@@ -49,4 +49,4 @@ const CreateArticle = () => {
 
   );
 };
-export default CreateArticle;
+export default CreateBoard;

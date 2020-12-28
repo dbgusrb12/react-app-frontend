@@ -1,7 +1,9 @@
 import React from 'react';
 import Banner from '../Banner';
+import MyEditor from '../../components/draft/Editor';
 
 const CreateBoard = () => {
+  const toolbarHidden = false;
   return (
     <div>
 
@@ -18,9 +20,6 @@ const CreateBoard = () => {
           <div className="col-12 col-lg-12">
             <form className="p-30 bg-gray rounded" method="POST" data-form="mailer">
               <div className="row">
-                <div className="form-group col-md-12 my-5">
-                  <input type="file" className="form-control" />
-                </div>
                 <div className="form-group col-12 col-md-6">
                   <input className="form-control form-control-lg" type="text" name="name" placeholder="Title" />
                 </div>
@@ -33,7 +32,7 @@ const CreateBoard = () => {
                 </div>
               </div>
               <div className="form-group">
-                <textarea className="form-control form-control-lg" rows={4} placeholder="Content" name="message" defaultValue={""} />
+                <MyEditor toolbarHidden={toolbarHidden}/>
               </div>
               <div className="text-center">
                 <button className="btn btn-lg btn-primary" type="submit">글쓰기</button>

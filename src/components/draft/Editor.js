@@ -1,16 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import '../../assets/editor.css';
 
-const MyEditor = ({ toolbarHidden }) => {
-  const [editorState, setEditorState] = useState(() => EditorState.createEmpty(),)
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+
+const MyEditor = ({ toolbarHidden, content, setContent }) => {
+  const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+  const rendered = useRef(false);
 
   const onEditorStateChange = (editorState) => {
+    const editorToHtml = draftToHtml(convertToRaw(editorState.getCurrentContent()));
     // editorState에 값 설정
+    setContent(editorToHtml);
     setEditorState(editorState);
+    console.log(editorToHtml);
   };
+  useEffect(() => {
+    if(rendered.current) {
+      return;
+    }
+    rendered.current = true;
+    const blocksFromHtml = htmlToDraft(content);
+    if(blocksFromHtml) {
+      const { contentBlocks, entityMap } = blocksFromHtml;
+      const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+      const editorState = EditorState.createWithContent(contentState);
+      setEditorState(editorState);
+    }
+  }, [content]);
 
   return (
       <Editor

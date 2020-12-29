@@ -6,10 +6,10 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import SignUp from './components/SignUp/index';
 import BoardDetail from './components/SingleArticle/boardDetail';
-import CreateBoard from './components/CreateArticle/createBoard';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import MainPage from './pages/main/MainPage';
+import BoardCreate from './pages/main/board/BoardCreate';
 
 const store = configureStore();
 
@@ -26,7 +26,7 @@ return (
         <Route exact path="/" component={MainPage}/>
         <Route path="/login" component={Login}/>
         <Route path="/article/:slug" component={BoardDetail}/>
-        <Route path="/articles/create" component={CreateBoard}/>
+        <Route path="/articles/create" component={BoardCreate}/>
         <Route path="/signup" component={SignUp}/>
       {
         location.pathname !== '/login' && location.pathname !== '/signup' &&

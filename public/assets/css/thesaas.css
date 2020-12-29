@@ -42,12 +42,13 @@ a:hover, a:focus {
   outline: none;
 }
 
-.link-color-default a {
+.link-color-default a, span {
   color: #535353;
 }
 
-.link-color-default a:hover, .link-color-default a:focus {
+.link-color-default a:hover, .link-color-default a:focus, .link-color-default span:hover, .link-color-default span:focus {
   color: #0facf3;
+  cursor: pointer;
 }
 
 b,

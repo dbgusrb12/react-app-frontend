@@ -1,6 +1,5 @@
 import React from 'react'
 import Banner from '../../components/Banner';
-import MyEditor from '../../components/draft/Editor';
 import BoardList from './board/BoardList';
 
 const MainPage = () => {

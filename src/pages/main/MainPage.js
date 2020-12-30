@@ -3,66 +3,48 @@ import Banner from '../../components/Banner';
 import BoardList from './board/BoardList';
 
 const MainPage = () => {
-  const boardList = [
+  const hasNext = true;
+  const hasPrevious = false;
+  const boardList =[
     {
-      id: 1,
+      bodrdId: 1,
+      userId: 'sdwa-wewr-231d-awwd',
+      userName: '유현규',
       title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
+      categoryName: 'spring boot',
+      createDate: '2020-12-24'
     },
     {
-      id: 2,
+      bodrdId: 2,
+      userId: 'sdwa-wewr-231d-awwd',
+      userName: '유현규',
       title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
+      categoryName: 'spring boot',
+      createDate: '2020-12-24'
     },
     {
-      id: 3,
+      bodrdId: 3,
+      userId: 'sdwa-wewr-231d-awwd',
+      userName: '유현규',
       title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
+      categoryName: 'spring boot',
+      createDate: '2020-12-24'
     },
     {
-      id: 4,
+      bodrdId: 4,
+      userId: 'sdwa-wewr-231d-awwd',
+      userName: '유현규',
       title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
+      categoryName: 'spring boot',
+      createDate: '2020-12-24'
     },
     {
-      id: 5,
+      bodrdId: 5,
+      userId: 'sdwa-wewr-231d-awwd',
+      userName: '유현규',
       title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
-    },
-    {
-      id: 6,
-      title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
-    },
-    {
-      id: 7,
-      title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
-    },
-    {
-      id: 8,
-      title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
-    },
-    {
-      id: 9,
-      title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
-    },
-    {
-      id: 10,
-      title: 'New features will add to dashboard soon',
-      category: 'spring boot',
-      date: '2020-12-24'
+      categoryName: 'spring boot',
+      createDate: '2020-12-24'
     },
   ];
   return (
@@ -78,14 +60,14 @@ const MainPage = () => {
             <BoardList boardList={boardList}/>
             
             <nav className="flexbox mt-50 mb-50">
-              <a className="btn btn-white disabled">
+              <button className={'btn btn-white ' + (!hasPrevious ? 'disabled' : '')} onClick>
                 <i className="ti-arrow-left fs-9 mr-4" />
                 Newer
-              </a>
-              <a className="btn btn-white" href="#">
+              </button>
+              <button className={'btn btn-white ' + (!hasNext ? 'disabled' : '')} onClick>
                 Older
                 <i className="ti-arrow-right fs-9 ml-4" />
-              </a>
+              </button>
             </nav>
           </div>
         </div>

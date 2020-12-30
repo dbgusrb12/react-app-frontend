@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Board = ({title, category, date}) => {
+const Board = (props) => {
+  const [board, setBoard] = useState(props);
+
   return (
     <>
     <article className="mt-90">
       <header className="text-center mb-40">
         <h3>
-          <a href="/article/some-title-slug">{title}</a>
+          <a href="/article/some-title-slug">{board.title}</a>
         </h3>
         <div className="link-color-default fs-12">
-          <a href="#">{category}</a>,
-          <time>{date}</time>
+          <span>{board.userName}</span>
+        </div>
+        <div className="link-color-default fs-12">
+          <a href="#">{board.categoryName}</a>,
+          <time>{board.createDate}</time>
         </div>
       </header>
       {/* <a href="blog-single.html">

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import SignUp from './components/SignUp/index';
-import BoardDetail from './components/SingleArticle/boardDetail';
+import BoardDetail from './pages/main/board/BoardDetail';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import MainPage from './pages/main/MainPage';

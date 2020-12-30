@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Board from '../../../components/Board/board';
 
-const BoardList = ({ boardList }) => {
+const BoardList = (props) => {
+  const [boardList, setBoardList] = useState(props.boardList);
 
-  let List = boardList.map((item) =>(
-    <Board key={item.id} title={item.title} category={item.category} date={item.date}/>
+  let List = props.boardList.map((item) =>(
+    <Board 
+    key={item.boardId} 
+    boardId={item.boardId} 
+    userId={item.userId} 
+    userName={item.userName} 
+    title={item.title} 
+    categoryName={item.categoryName} 
+    createDate={item.createDate}/>
   ));
 
   return (

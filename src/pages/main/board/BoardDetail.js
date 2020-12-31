@@ -51,7 +51,7 @@ const BoardDetail = () => {
     updateDate: '',
   }
   const replyType = 0;
-  const hasNext = false;
+  const hasNext = true;
   const commentList = [
     {
       replyId: 1,

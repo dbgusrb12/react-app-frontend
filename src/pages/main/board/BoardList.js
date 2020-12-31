@@ -4,9 +4,9 @@ import Board from '../../../components/Board/board';
 const BoardList = (props) => {
   const [boardList, setBoardList] = useState(props.boardList);
 
-  let List = props.boardList.map((item) =>(
+  let List = props.boardList.map((item, index) =>(
     <Board 
-    key={item.boardId} 
+    key={index} 
     boardId={item.boardId} 
     userId={item.userId} 
     userName={item.userName} 

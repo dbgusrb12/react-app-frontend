@@ -5,26 +5,19 @@ const CommentList = (props) => {
   const [commentList, setCommentList] = useState(props.commentList);
   const [replyType, setReplyType] = useState(props.replyType);
   const [hasNext, setHasNext] = useState(props.hasNext);
-  let List;
-  if(replyType === 0) {
-    List = commentList.map((comment, index) => (
-      <Comment
-      key={comment.replyId}
-      replyId={comment.replyId}
-      userId={comment.userId}
-      userName={comment.userName}
-      parentId={comment.boardId}
-      content={comment.content}
-      commentCount={comment.commentCount}
-      createDate={comment.createDate}
-      replyType={replyType}
-      />
-    ));
-
-  }else {
-    List = (<div></div>);
-  }
-
+  let List = commentList.map((comment, index) => (
+    <Comment
+    key={comment.replyId}
+    replyId={comment.replyId}
+    userId={comment.userId}
+    userName={comment.userName}
+    parentId={comment.boardId}
+    content={comment.content}
+    commentCount={comment.commentCount}
+    createDate={comment.createDate}
+    replyType={replyType}
+    />
+  ));
   return (
     <div className="row">
     {List}
@@ -32,8 +25,8 @@ const CommentList = (props) => {
         <div className="media m-0 p-0">
           {hasNext && 
             <div className="media-body pt-15">
-              <div className="link-color-default">
-                <span onclick>댓글 더보기</span>
+              <div className={'link-color-default ' + (replyType == 0 ? '' : 'fs-12')}>
+                <span onClick>{replyType == 0 ? '댓글 더보기' : '답글 더보기'}</span>
               </div>
             </div>
           }

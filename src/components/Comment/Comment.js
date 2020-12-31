@@ -3,9 +3,10 @@ import ReactHtmlParser from 'react-html-parser';
 import CommentList from './CommentList'
 
 const Comment = (props) => {
-  const [replyType, setReplyType] = useState(props.replyType);
+  const [replyType, setReplyType] = useState(1);
+  const [replyFlag, setReplyFlag] = useState(false);
   const [comment, setComment] = useState(props);
-  const hasNext = false;
+  const hasNext = true;
   const commentList = [
     {
       replyId: 1,
@@ -35,6 +36,11 @@ const Comment = (props) => {
       createDate: '2020-12-30',
     },
   ];
+
+  const reCommentHandler = () => {
+    setReplyFlag(!replyFlag);
+  }
+
   return (
     <>
       <div className="col-12 align-self-center">
@@ -50,9 +56,9 @@ const Comment = (props) => {
           {comment.commentCount > 0 &&
             <div className="media-body pl-50 pt-5">
               <div className="link-color-default fs-12">
-                <span onclick>답글 보기(1)</span>
+                <span onClick={reCommentHandler}>{replyFlag ? '답글 닫기' : `답글 보기(${comment.commentCount})`}</span>
               </div>
-              {/* <CommentList commentList={commentList} replyType={replyType} hasNext={hasNext}/> */}
+              {replyFlag && <CommentList commentList={commentList} replyType={replyType} hasNext={hasNext}/>}
             </div>
           }
             

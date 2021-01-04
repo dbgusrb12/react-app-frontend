@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, withRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Login from './components/Login';
+import LoginPage from './pages/LoginPage';
 import SignUp from './components/SignUp/index';
 import BoardDetail from './pages/main/board/BoardDetail';
 import { Provider } from 'react-redux';
@@ -24,7 +24,7 @@ return (
         
         {/* <Route exact path="/" component={Welcome}/> */}
         <Route exact path="/" component={MainPage}/>
-        <Route path="/login" component={Login}/>
+        <Route path="/login" component={LoginPage}/>
         <Route path="/article/:slug" component={BoardDetail}/>
         <Route path="/articles/create" component={BoardCreate}/>
         <Route path="/signup" component={SignUp}/>

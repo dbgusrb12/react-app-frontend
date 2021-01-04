@@ -1,8 +1,10 @@
 import React from 'react'
 import Banner from '../../components/Banner';
 import BoardList from './board/BoardList';
-
+import { useDispatch } from 'react-redux';
 const MainPage = () => {
+  const dispatch = useDispatch();
+  
   const hasNext = true;
   const hasPrevious = false;
   const boardList =[
